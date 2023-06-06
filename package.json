@@ -1,0 +1,13 @@
+{
+  "name": "uprove-jwp",
+  "version": "0.0.1",
+  "description": "U-Prove JSON Web Proof profile",
+  "scripts": {
+    "generate-examples": "node uprovejwp.mjs"
+  },
+  "author": "Christian Paquin",
+  "license": "MIT",
+  "dependencies": {
+    "uprove-node-reference": "github:microsoft/uprove-node-reference"
+  }
+}
