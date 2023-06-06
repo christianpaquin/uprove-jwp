@@ -22,7 +22,7 @@ The U-Prove (capitalized) *Issuer*, *Prover*, and *Verifier* roles correspond to
 The issuer sets up its public parameters, as described in the [UPJF](https://github.com/microsoft/uprove-node-reference/blob/main/doc/U-Prove_JSON_Framework.md#issuer-parameters). If the U-Prove tokens are to contain attributes (claims), their types SHOULD be encoded in the parameters' `spec` field using a `claims` array (as in a [JPT header](https://json-web-proofs.github.io/json-web-proofs/draft-ietf-jose-json-proof-token.html#name-claims)).
 
 Here is an example of a set of Issuer parameters encoded as a JSON Web Key (JWK):
-```json
+```
 {
   kty: 'UP',
   alg: 'UP256',
@@ -33,7 +33,7 @@ Here is an example of a set of Issuer parameters encoded as a JSON Web Key (JWK)
 ```
 
 and its corresponding public key $y_0$: `PKinssR-9gt4ZSFDb1-nCIuochODYmji2W3o3BDSgEQ`. The specification property `spec` encodes the following JSON object, specifying the number of attributes in to-be-issued tokens (e.g., 4), the expiration type (e.g., number of days since Unix epoch), and attribute types (e.g., family name, given name, email address, and age):
-```json
+```
 {
   n: 4,
   expType: 'day',
@@ -51,7 +51,7 @@ The issuer and holder perform the U-Prove issuance protocol, as described in the
 
 Here is an example of a U-Prove token issued using the example Issuer parameters, encoding the attribute values "Doe", "Jay", "jaydoe@example.org", "42" (corresponding to the attribute types specified in the Issuer parameters).
 
-```json
+```
 {
   protected: { alg: 'UP256', typ: 'JWP' },
   payload: [ 'RG9l', 'SmF5', 'amF5ZG9lQGV4YW1wbGUub3Jn', 'NDI' ],
@@ -91,7 +91,7 @@ The issued U-Prove JPT's can be transformed into the presented form by:
 
 Here is an example of the presented for of the above U-Prove token, disclosing the given name and age attributes, and signing the nonce `uTEB371l1pzWJl7afB0wi0HWUNk1Le-bComFLxa8K-s` using the token's private key.
 
-```json
+```
 {
   protected: { alg: 'UP256', typ: 'JWP' },
   payload: [ null, 'SmF5', null, 'NDI' ],
